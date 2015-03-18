@@ -68,7 +68,8 @@ typedef struct
     self.dataModel = [[DataModel alloc] init];
     [self.dataModel loadDataModelLocally];
     
-    self.shops = [NSMutableArray arrayWithArray:self.dataModel.shops];
+    //self.shops = [NSMutableArray arrayWithArray:self.dataModel.shops];
+    self.shops = [NSMutableArray arrayWithArray:self.dataModel.products];
 }
 
 - (void)loadShopsByCommunity:(NSInteger)comminityIndex
@@ -209,11 +210,15 @@ typedef struct
         label.textAlignment = NSTextAlignmentCenter;
         
         //http://stackoverflow.com/questions/9907100/issues-with-setting-some-different-font-for-uilabel
-        label.font = [UIFont fontWithName:@"STHeitiSC-Light" size:10];
+        label.font = [UIFont fontWithName:@"STHeitiSC-Light" size:15];
         
         //NSString *imageURLString = [[self.dataModel.shops objectAtIndex:i] objectForKey:@"image"];
-        NSString *imageURLString = [[self.shops objectAtIndex:i] objectForKey:@"image"];
-        [imageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage imageNamed:@"Default_142x142"]];
+        NSString *imageURLString = [[self.shops objectAtIndex:i] objectForKey:@"image1"];
+        if([imageURLString length] == 0)
+            imageView.image = [UIImage imageNamed:@"Default_142x142"];
+        else
+            imageView.image = [UIImage imageNamed:imageURLString];
+        //[imageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage imageNamed:@"Default_142x142"]];
         
         
         [itemView addSubview:imageView];

@@ -155,7 +155,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         
         //http://stackoverflow.com/questions/9907100/issues-with-setting-some-different-font-for-uilabel
-        label.font = [UIFont fontWithName:@"STHeitiSC-Light" size:10];
+        label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size:10];
         
         imageView.image = [UIImage imageNamed:@"Default_44x44"];
         //imageView.contentMode = UIViewContentModeScaleAspectFill;

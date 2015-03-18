@@ -406,9 +406,33 @@ static NSString *ProductArrayKey = @"Products";
 
 - (void)loadingTestData
 {
+    NSMutableDictionary *dict;
+    self.products = [[NSMutableArray alloc] init];
+    
+    NSArray *array3 = @[@"波士顿观鲸巡航",
+                       @"曼哈顿直升机观光",
+                       @"帝国大厦实体票",
+                        @"太阳剧团《O》演出门票",
+                        @"豪华双体船巡航",
+                        @"拉斯维加斯性感上空秀",
+                        @"哈佛大学校园漫步",
+                        @"卡帕莱水屋度假村",
+                        @"马来西亚兰卡威一日游",
+                        @"迪士尼门票"];
+    for(NSString *s in array3)
+    {
+        dict = [[NSMutableDictionary alloc] init];
+        
+        [dict setObject:s forKey:@"name"];
+        [dict setObject:@"" forKey:@"image1"];
+        [dict setObject:@"" forKey:@"image2"];
+        
+        [self.products addObject:dict];
+    }
+    
     self.communities = [[NSMutableArray alloc] init];
     
-    NSArray *array1 = @[@"全球旅行目的地，172个郭嘉和地区，536个城市",
+    NSArray *array1 = @[@"全球旅行目的地，\n172个国家和地区，\n536个城市",
                        @"北美洲",
                        @"欧洲",
                        @"亚洲",
@@ -416,7 +440,7 @@ static NSString *ProductArrayKey = @"Products";
                        @"南美洲",
                        @"非洲",
                        @"中东"];
-    NSMutableDictionary *dict;
+
     for(NSString *s in array1)
     {
         dict = [[NSMutableDictionary alloc] init];
@@ -433,22 +457,23 @@ static NSString *ProductArrayKey = @"Products";
     self.categories = [[NSMutableArray alloc] init];
     
     NSArray *array2 = @[@"特色体验",
-                        @"演出表演",
-                        @"当地导游",
-                        @"电话卡",
                         @"户外探险",
-                        @"体育赛事",
-                        @"当地商务翻译",
-                        @"移动wifi网卡",
                         @"当地参团",
-                        @"体验课程",
-                        @"酒店客栈",
-                        @"交通卡",
                         @"自驾租车",
-                        @"购物折扣券",
-                        @"接送服务",
-                        @"旅行保险",
                         @"门票",
+                        @"演出表演",
+                        @"体育赛事",
+                        @"美食",
+                        @"体验课程",
+                        @"购物折扣券",
+                        @"当地导游",
+                        @"当地商务翻译",
+                        @"酒店客栈",
+                        @"接送服务",
+                        @"电话卡",
+                        @"移动wifi网卡",
+                        @"交通卡",
+                        @"旅行保险",
                         @"签证"];
     
     for(NSString *s in array2)

@@ -42,14 +42,17 @@ static AnimationDirection directions[4];
     
     
     self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentView.bounds.origin.x,
-                                                              self.contentView.bounds.origin.y + 128,
+                                                              self.contentView.bounds.origin.y + 49,
                                                               self.contentView.bounds.size.width,
-                                                               21)];
+                                                               100)];
+    
+    //self.textLabel = [[UILabel alloc] initWithFrame:self.contentView.bounds];
     self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.textLabel.numberOfLines = 0;
 
     self.textLabel.textAlignment = NSTextAlignmentCenter;
-    self.textLabel.font = [UIFont fontWithName:@"STHeitiSC-Light" size:10];
+    self.textLabel.font = [UIFont fontWithName:@"STHeitiSC-Medium" size:18];
+    self.textLabel.textColor = [UIColor whiteColor];
     [self.contentView addSubview:self.textLabel];
     
 }

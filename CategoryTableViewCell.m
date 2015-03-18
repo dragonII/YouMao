@@ -192,6 +192,7 @@
     int index = 1000;
     int row = 0;
     int column = 0;
+    int pages = 0;
     
     //for(NSString *itemString in self.categoriesListArray)
     for(NSDictionary *dict in self.categoriesListArray)
@@ -218,6 +219,7 @@
                                  itemWidth, itemHeight - imageViewHeight);
         //label.text = itemString;
         label.text = [dict objectForKey:@"name"];
+        NSLog(@"%@: %d", label.text, pages);
         label.textAlignment = NSTextAlignmentCenter;
         
         //http://stackoverflow.com/questions/9907100/issues-with-setting-some-different-font-for-uilabel
@@ -253,8 +255,9 @@
             
             if(column == columnsPerPage)
             {
+                pages++;
                 column = 0;
-                x = [UIScreen mainScreen].bounds.size.width;
+                x = [UIScreen mainScreen].bounds.size.width * pages;
             }
         }
     }

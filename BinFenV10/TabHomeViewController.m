@@ -100,6 +100,7 @@ static const NSInteger RefreshSectionIndex = 3;
 
 - (void)initCategoriesData
 {
+    /*
     self.categoriesDataList = @[@"Cate01",
                                 @"Cate02",
                                 @"Cate03",
@@ -111,6 +112,25 @@ static const NSInteger RefreshSectionIndex = 3;
                                 @"Cate09",
                                 @"Cate10",
                                 @"Cate11"];
+     */
+    
+    NSArray *list1 = [[NSArray alloc] init];
+    NSArray *list2 = @[@"1~15日游",
+                       @"潜水团",
+                       @"滑雪团",
+                       @"户外团",
+                       @"巴士团",
+                       @"游轮团",
+                       @"私人飞机团",
+                       @"小公务机团"];
+    NSArray *list3 = @[@"当地导游",
+                       @"当地翻译",
+                       @"当地商务助理"];
+    NSArray *list4 = @[@"按地区",
+                       @"按。。。",
+                       @"我要写"];
+    
+    self.categoriesDataList = @[list1, list2, list3, list4];
 }
 
 - (void)loadingData
@@ -477,18 +497,19 @@ static const NSInteger RefreshSectionIndex = 3;
         case ShopsTableSectionIndex:
         {
             NSInteger batchIndex = [[NSUserDefaults standardUserDefaults] integerForKey:LoadContentBatchIndexKey];
-            if([self.dataModel.shops count] == 0)
+            if([self.dataModel.products count] == 0)
             {
                 return 0;
             }
             
-            if([self.dataModel.shops count] >= batchIndex * TotalItemsPerBatch)
+            if([self.dataModel.products count] >= batchIndex * TotalItemsPerBatch)
             {
                 return batchIndex * TotalRowsPerBatch * heightOfItemInShopsCell;
             }
             else // 0 < count < batchIndex * TotalItemsPerBatch
             {
-                NSInteger totalRows = ([self.dataModel.shops count] - 1) / 2 + 1;
+                //NSInteger totalRows = ([self.dataModel.shops count] - 1) / 2 + 1;
+                NSInteger totalRows = ([self.dataModel.products count] - 1) / 2 + 1;
                 return totalRows * heightOfItemInShopsCell;
             }
         }
@@ -563,7 +584,8 @@ static const NSInteger RefreshSectionIndex = 3;
         [self.categoryPopover dismissMenuPopover];
     }
     
-    self.categoryPopover = [[MLKMenuPopover alloc] initWithFrame:popoverFrame menuItems:self.categoriesDataList];
+    //self.categoryPopover = [[MLKMenuPopover alloc] initWithFrame:popoverFrame menuItems:self.categoriesDataList];
+    self.categoryPopover = [[MLKMenuPopover alloc] initWithFrame:popoverFrame menuItems:[self.categoriesDataList objectAtIndex:self.categoryButtonIndex]];
     self.categoryPopover.menuPopoverDelegate = self;
     [self.categoryPopover showInView:self.view];
 }
@@ -588,7 +610,7 @@ static const NSInteger RefreshSectionIndex = 3;
         case DeviceHardwareGeneralPlatform_iPhone_5C:
         case DeviceHardwareGeneralPlatform_iPhone_5S:
         {
-            return 106.0f;
+            return 78.5f;
             break;
         }
             
@@ -597,7 +619,7 @@ static const NSInteger RefreshSectionIndex = 3;
             
         case DeviceHardwareGeneralPlatform_iPhone_6_Plus:
         {
-            return 138.0f;
+            return 102.0f;
             break;
         }
             
@@ -608,12 +630,47 @@ static const NSInteger RefreshSectionIndex = 3;
     }
 }
 
+- (CGFloat)getPaddingByDevice
+{
+    DeviceHardwareGeneralPlatform generalPlatform = [DeviceHardware generalPlatform];
+    
+    switch (generalPlatform)
+    {
+        case DeviceHardwareGeneralPlatform_iPhone_4:
+        case DeviceHardwareGeneralPlatform_iPhone_4S:
+        case DeviceHardwareGeneralPlatform_iPhone_5:
+        case DeviceHardwareGeneralPlatform_iPhone_5C:
+        case DeviceHardwareGeneralPlatform_iPhone_5S:
+        {
+            return 2.0f;
+            break;
+        }
+            
+        case DeviceHardwareGeneralPlatform_iPhone_6:
+            return 124.0f;
+            
+        case DeviceHardwareGeneralPlatform_iPhone_6_Plus:
+        {
+            return 2.0f;
+            break;
+        }
+            
+        default:
+            NSLog(@"Width: %f", self.view.bounds.size.width);
+            return 2.0f;
+            break;
+    }
+}
+
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if(section == ShopsTableSectionIndex)
     {
         //CGFloat buttonWidth = 106.0f;
         CGFloat buttonWidth = [self getItemWidthByDevice];
+        //CGFloat buttonWidth = 102.0f;
+        CGFloat padding = [self getPaddingByDevice];
     
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 36)];
         //imageView.backgroundColor = [UIColor lightGrayColor];
@@ -625,25 +682,42 @@ static const NSInteger RefreshSectionIndex = 3;
                                                                   buttonWidth, 36)];
         button1.tag = 101;
         button1.backgroundColor = [UIColor lightGrayColor];
+        [button1 setTitle:@"吃喝玩乐购" forState:UIControlStateNormal];
+        [button1 setTitle:@"吃喝玩乐购" forState:UIControlStateSelected];
         [button1 addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-        UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(imageView.frame.origin.x + buttonWidth + 1,
+        UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(imageView.frame.origin.x + buttonWidth + padding,
                                                                   imageView.frame.origin.y,
                                                                    buttonWidth, 36)];
         button2.tag = 102;
         button2.backgroundColor = [UIColor lightGrayColor];
+        [button2 setTitle:@"当地参团" forState:UIControlStateNormal];
+        [button2 setTitle:@"当地参团" forState:UIControlStateSelected];
         [button2 addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(imageView.frame.origin.x + (buttonWidth + 1) * 2,
+        UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(imageView.frame.origin.x + (buttonWidth + padding) * 2,
                                                                   imageView.frame.origin.y,
                                                                    buttonWidth + 1, 36)];
         button3.tag = 103;
         button3.backgroundColor = [UIColor lightGrayColor];
         [button3 addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [button3 setTitle:@"找导游" forState:UIControlStateNormal];
+        [button3 setTitle:@"找导游" forState:UIControlStateSelected];
+        
+        
+        UIButton *button4 = [[UIButton alloc] initWithFrame:CGRectMake(imageView.frame.origin.x + (buttonWidth + padding) * 3,
+                                                                       imageView.frame.origin.y,
+                                                                       buttonWidth + 1, 36)];
+        button4.tag = 104;
+        button4.backgroundColor = [UIColor lightGrayColor];
+        [button4 addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [button4 setTitle:@"精彩游记" forState:UIControlStateNormal];
+        [button4 setTitle:@"精彩游记" forState:UIControlStateSelected];
     
         [imageView addSubview:button1];
         [imageView addSubview:button2];
         [imageView addSubview:button3];
+        [imageView addSubview:button4];
     
         return imageView;
     } else {

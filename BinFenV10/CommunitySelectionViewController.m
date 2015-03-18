@@ -28,14 +28,14 @@ static const NSInteger SectionHistoryIndex = 1;
 
 - (void)loadCommunityByCurrentLocation
 {
-    self.currentCommunity = [@"益田村" copy];
+    self.currentCommunity = [@"加拿大" copy];
 }
 
 - (void)loadCommunityByHistory
 {
     self.communityHistoryList = [[NSMutableArray alloc] init];
-    [self.communityHistoryList addObject:@"岗夏村"];
-    [self.communityHistoryList addObject:@"长平商务大厦"];
+    [self.communityHistoryList addObject:@"荷兰"];
+    [self.communityHistoryList addObject:@"滑雪"];
 }
 
 - (void)viewDidLoad
@@ -129,7 +129,7 @@ static const NSInteger SectionHistoryIndex = 1;
     bgView.backgroundColor = [UIColor lightGrayColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, self.view.bounds.size.width - 16, 28)];
     label.textColor = [UIColor whiteColor];
-    label.text = @"历史社区";
+    label.text = @"历史浏览";
     [bgView addSubview:label];
     
     return bgView;
