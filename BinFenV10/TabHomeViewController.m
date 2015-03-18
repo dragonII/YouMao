@@ -115,7 +115,24 @@ static const NSInteger RefreshSectionIndex = 3;
                                 @"Cate11"];
      */
     
-    NSArray *list1 = [[NSArray alloc] init];
+    NSArray *list1 = @[@"潜水",
+                       @"滑雪",
+                       @"游艇",
+                       @"帆船",
+                       @"射击",
+                       @"打猎",
+                       @"直升机游览",
+                       @"特色美食",
+                       @"红酒之旅",
+                       @"高尔夫",
+                       @"火车票",
+                       @"巴士票",
+                       @"渡轮票",
+                       @"游乐场",
+                       @"动植物园",
+                       @"体育赛事",
+                       @"演出表演",
+                       @"购物折扣券"];
     NSArray *list2 = @[@"1~15日游",
                        @"潜水团",
                        @"滑雪团",
@@ -128,7 +145,7 @@ static const NSInteger RefreshSectionIndex = 3;
                        @"当地翻译",
                        @"当地商务助理"];
     NSArray *list4 = @[@"按地区",
-                       @"按。。。",
+                       @"按旅行项目",
                        @"我要写"];
     
     self.categoriesDataList = @[list1, list2, list3, list4];

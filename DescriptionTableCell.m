@@ -26,4 +26,14 @@
     // Configure the view for the selected state
 }
 
+- (void)setDescriptionString:(NSString *)descriptionString
+{
+    if(![_descriptionString isEqualToString:descriptionString])
+    {
+        _descriptionString = [descriptionString copy];
+        
+        _descriptionTextView.text = _descriptionString;
+    }
+}
+
 @end

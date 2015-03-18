@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -21,13 +21,19 @@
                             <constraint firstAttribute="height" constant="200" id="Bpl-cZ-crj"/>
                         </constraints>
                     </scrollView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-2v-fNk">
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-2v-fNk">
                         <rect key="frame" x="141" y="155" width="39" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="0ri-fk-PnJ"/>
+                        </constraints>
                     </pageControl>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="YPI-2v-fNk" secondAttribute="trailing" constant="132" id="9eT-Bl-59j"/>
                     <constraint firstItem="Jn0-Fi-LyX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="JKn-MH-RWd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="YPI-2v-fNk" secondAttribute="bottom" constant="-0.5" id="Zgd-BO-61v"/>
                     <constraint firstItem="Jn0-Fi-LyX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="d2U-CW-jBu"/>
+                    <constraint firstItem="YPI-2v-fNk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="133" id="hBm-PN-eex"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Jn0-Fi-LyX" secondAttribute="trailing" constant="-8" id="oTs-5E-AJ8"/>
                 </constraints>
             </tableViewCellContentView>

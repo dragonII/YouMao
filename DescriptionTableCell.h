@@ -10,4 +10,6 @@
 
 @interface DescriptionTableCell : UITableViewCell
 
+@property (copy, nonatomic) NSString *descriptionString;
+
 @end

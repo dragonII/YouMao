@@ -225,7 +225,8 @@
         //http://stackoverflow.com/questions/9907100/issues-with-setting-some-different-font-for-uilabel
         label.font = [UIFont fontWithName:@"STHeitiSC-Light" size:10];
         
-        imageView.image = [UIImage imageNamed:@"Default_44x44"];
+        //imageView.image = [UIImage imageNamed:@"Default_44x44"];
+        imageView.image = [UIImage imageNamed:[dict objectForKey:@"image"]];
         //imageView.contentMode = UIViewContentModeScaleAspectFill;
         /////
         // Performance

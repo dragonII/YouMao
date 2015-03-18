@@ -94,6 +94,15 @@
     
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, height)];
     [self.headerImageView setImage:headerImage];
+    
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 100, width - 40, 30)];
+    //searchBar.barStyle = UIBarStyleBlackTranslucent;
+    searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    searchBar.placeholder = @"游猫旅行    与你共享深度旅行体验";
+    [self.headerImageView addSubview:searchBar];
+     
     [self addSubview:self.headerImageView];
     
     self.OTCoverHeight = height;

@@ -325,7 +325,9 @@ static const NSInteger SeperatorCellIndex = 3;
                 
                 //cell.imageNamesArray = @[[self.product objectForKey:@"image"]];
                 cell.imageNamesArray = @[[self.product objectForKey:@"image1"],
-                                         [self.product objectForKey:@"image2"]];
+                                         [self.product objectForKey:@"image2"],
+                                         [self.product objectForKey:@"image3"],
+                                         [self.product objectForKey:@"image4"]];
                 return cell;
             }
             case ProductPriceCellIndex:
@@ -345,6 +347,7 @@ static const NSInteger SeperatorCellIndex = 3;
                 {
                     cell = [[DescriptionTableCell alloc] init];
                 }
+                cell.descriptionString = [self.product objectForKey:@"description"];
                 return cell;
             }
             case SeperatorCellIndex:
@@ -388,7 +391,7 @@ static const NSInteger SeperatorCellIndex = 3;
                 return 28.0f;
             
             case ProductDescriptionCellIndex:
-                return 92.0f;
+                return 300.0f;
             
             case SeperatorCellIndex:
                 return 12.0f;

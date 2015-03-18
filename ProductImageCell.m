@@ -48,25 +48,30 @@
 
 - (void)loadImages
 {
+    CGFloat scrollViewWidth = self.scrollView.bounds.size.width;
     CGFloat x = 0;
     CGFloat imageViewWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat imageViewHeight = 200.0f;
     
-    //NSLog(@"Before setting images");
     for(int i = 0; i < [self.imageNamesArray count]; i++)
     {
-        //NSLog(@"imageName: %@", [self.imageNamesArray objectAtIndex:i]);
+        NSLog(@"imageName: %@", [self.imageNamesArray objectAtIndex:i]);
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.frame = CGRectMake(x + (imageViewWidth * i), 0, imageViewWidth, imageViewHeight);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         NSString *imageString = [self.imageNamesArray objectAtIndex:i];
         if([imageString length] == 0)
-            [imageView setImage:[UIImage imageNamed:@"Default_320x200"]];
+            //[imageView setImage:[UIImage imageNamed:@"Default_320x200"]];
+            continue;
         else
-            [imageView setImageWithURL:[NSURL URLWithString:[self.imageNamesArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"Default_320x200"]];
+            [imageView setImage:[UIImage imageNamed:imageString]];
         
         [self.scrollView addSubview:imageView];
     }
+    self.scrollView.contentSize = CGSizeMake([self.imageNamesArray count] * scrollViewWidth, self.scrollView.frame.size.height);
+    
+    self.pageControl.numberOfPages = [self.imageNamesArray count];
+    self.pageControl.currentPage = 0;
 }
 
 - (void)initItems
