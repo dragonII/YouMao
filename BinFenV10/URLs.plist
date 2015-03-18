@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>backup</key>
+		<string>http://mixmb.syslive.cn</string>
+		<key>url</key>
+		<string>http://192.168.1.250:81</string>
+		<key>description</key>
+		<string>shops</string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="KGk-i7-Jjw" customClass="OrderItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2N-F7-Hml">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="12"/>
+                        <color key="backgroundColor" red="0.88235294117647056" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="Uq7-i5-hsT"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default_56x56" translatesAutoresizingMaskIntoConstraints="NO" id="FCY-fI-Sn5">
+                        <rect key="frame" x="26" y="50" width="56" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="kG1-5C-dlT"/>
+                            <constraint firstAttribute="width" constant="56" id="oId-3F-o03"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店铺名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5q-2C-HvD">
+                        <rect key="frame" x="26" y="20" width="79" height="21"/>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="商品信息" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTJ-1Z-GCn">
+                        <rect key="frame" x="90" y="50" width="160" height="56"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待支付" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8t-M9-wDQ">
+                        <rect key="frame" x="261" y="20" width="51" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="aoM-xH-kRo"/>
+                            <constraint firstAttribute="width" constant="51" id="rOe-Wx-sdj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="11"/>
+                        <color key="textColor" red="0.99215686274509807" green="0.60784313725490191" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="52" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngx-gR-PAI">
+                        <rect key="frame" x="256" y="116" width="56" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="ByU-Ri-8kp"/>
+                            <constraint firstAttribute="height" constant="22" id="HRW-9B-3es"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                        <state key="normal" title="付款" backgroundImage="NarrowOrangeButtonBG">
+                            <color key="titleColor" red="0.99215686274509807" green="0.60784313725490191" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KQq-P7-zez"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="51" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bm-hP-qeZ">
+                        <rect key="frame" x="173" y="116" width="76" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="LZA-Mk-hjP"/>
+                            <constraint firstAttribute="width" constant="76" id="w8Q-6f-bdn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                        <state key="normal" title="取消订单" backgroundImage="WideGrayButtonBG">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hG8-Oj-3rZ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yht-LZ-s2m">
+                        <rect key="frame" x="256" y="49" width="56" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="NZh-GI-fct"/>
+                            <constraint firstAttribute="width" constant="56" id="qJh-VI-HZA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 数量" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEH-iO-bNM">
+                        <rect key="frame" x="256" y="78" width="56" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="NSb-VS-Sbh"/>
+                            <constraint firstAttribute="height" constant="21" id="gNL-VY-GSb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="11"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FCY-fI-Sn5" firstAttribute="top" secondItem="J2N-F7-Hml" secondAttribute="bottom" constant="38" id="04v-bZ-VvG"/>
+                    <constraint firstItem="Ngx-gR-PAI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="58m-gj-sgq"/>
+                    <constraint firstItem="U8t-M9-wDQ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6vP-SN-OCU"/>
+                    <constraint firstItem="J2N-F7-Hml" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8Ym-eH-z5x"/>
+                    <constraint firstItem="FCY-fI-Sn5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="18" id="M91-vn-VdQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5bm-hP-qeZ" secondAttribute="bottom" constant="-2.5" id="Nyf-tG-8cc"/>
+                    <constraint firstItem="Yht-LZ-s2m" firstAttribute="top" secondItem="U8t-M9-wDQ" secondAttribute="bottom" constant="8" id="PA8-6C-obw"/>
+                    <constraint firstItem="Ngx-gR-PAI" firstAttribute="leading" secondItem="5bm-hP-qeZ" secondAttribute="trailing" constant="7" id="S7W-em-Yuj"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Ngx-gR-PAI" secondAttribute="bottom" constant="-2.5" id="b9U-vH-3v4"/>
+                    <constraint firstItem="AEH-iO-bNM" firstAttribute="top" secondItem="Yht-LZ-s2m" secondAttribute="bottom" constant="8" id="bxY-U0-aTl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="J2N-F7-Hml" secondAttribute="trailing" constant="-8" id="c6V-3N-rHZ"/>
+                    <constraint firstItem="J2N-F7-Hml" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="poO-Ym-dvV"/>
+                    <constraint firstItem="AEH-iO-bNM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="sxA-1y-84d"/>
+                    <constraint firstItem="U8t-M9-wDQ" firstAttribute="top" secondItem="J2N-F7-Hml" secondAttribute="bottom" constant="8" id="wxj-8V-CQ1"/>
+                    <constraint firstItem="Yht-LZ-s2m" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="yxN-Z6-4do"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="leftButton" destination="5bm-hP-qeZ" id="mvL-JL-MC8"/>
+                <outlet property="rightButton" destination="Ngx-gR-PAI" id="cyU-z0-WpC"/>
+                <outlet property="statusLabel" destination="U8t-M9-wDQ" id="hBb-1e-frD"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Default_56x56" width="56" height="56"/>
+        <image name="NarrowOrangeButtonBG" width="56" height="22"/>
+        <image name="WideGrayButtonBG" width="74" height="22"/>
+    </resources>
+</document>
