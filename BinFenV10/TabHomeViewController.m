@@ -168,7 +168,7 @@ static const NSInteger RefreshSectionIndex = 3;
 {
     self.dataModel = [[DataModel alloc] init];
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    //[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     [self initCommunitiesData];
     [self initCategoriesData];
@@ -184,6 +184,8 @@ static const NSInteger RefreshSectionIndex = 3;
                                                 selector:@selector(loadingData)
                                                 userInfo:nil repeats:YES];
      */
+    
+    [self.dataModel loadingTestData];
 }
 
 - (void)initCommunityTableRow
@@ -280,7 +282,6 @@ static const NSInteger RefreshSectionIndex = 3;
 #pragma UICollectionDelegate, DataSource and Flow
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    //return [self.communitiesDataList count];
     return [self.dataModel.communities count];
 }
 
@@ -295,6 +296,7 @@ static const NSInteger RefreshSectionIndex = 3;
     
     //cell.text = [self.communitiesDataList objectAtIndex:indexPath.row];
     cell.text = [[self.dataModel.communities objectAtIndex:indexPath.row] objectForKey:@"name"];
+
     return cell;
 }
 
@@ -388,7 +390,8 @@ static const NSInteger RefreshSectionIndex = 3;
                 cell = [[CategoryTableViewCell alloc] init];
             }
             
-            cell.categoriesListArray = self.categoriesDataList;
+            //cell.categoriesListArray = self.categoriesDataList;
+            cell.categoriesListArray = self.dataModel.categories;
             
             return cell;
         }

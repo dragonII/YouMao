@@ -77,4 +77,7 @@ static NSString *CommentUserKey = @"UserName";
 
 - (void)loadCommentsByProductID:(NSString *)productID;
 
+
+- (void)loadingTestData;
+
 @end

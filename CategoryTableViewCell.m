@@ -193,7 +193,8 @@
     int row = 0;
     int column = 0;
     
-    for(NSString *itemString in self.categoriesListArray)
+    //for(NSString *itemString in self.categoriesListArray)
+    for(NSDictionary *dict in self.categoriesListArray)
     {
         UIView *itemView = [[UIView alloc] init];
         itemView.tag = index;
@@ -215,7 +216,8 @@
         label.frame = CGRectMake(itemView.bounds.origin.x,
                                  itemView.bounds.origin.y + 12 + imageViewHeight,
                                  itemWidth, itemHeight - imageViewHeight);
-        label.text = itemString;
+        //label.text = itemString;
+        label.text = [dict objectForKey:@"name"];
         label.textAlignment = NSTextAlignmentCenter;
         
         //http://stackoverflow.com/questions/9907100/issues-with-setting-some-different-font-for-uilabel

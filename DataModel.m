@@ -404,4 +404,64 @@ static NSString *ProductArrayKey = @"Products";
                              }];
 }
 
+- (void)loadingTestData
+{
+    self.communities = [[NSMutableArray alloc] init];
+    
+    NSArray *array1 = @[@"全球旅行目的地，172个郭嘉和地区，536个城市",
+                       @"北美洲",
+                       @"欧洲",
+                       @"亚洲",
+                       @"大洋洲",
+                       @"南美洲",
+                       @"非洲",
+                       @"中东"];
+    NSMutableDictionary *dict;
+    for(NSString *s in array1)
+    {
+        dict = [[NSMutableDictionary alloc] init];
+        
+        [dict setObject:s forKey:CommunityIDKey];
+        [dict setObject:s forKey:CommunityNameKey];
+        [dict setObject:@"" forKey:CommunityAreaKey];
+        [dict setObject:@"" forKey:CommunityDescKey];
+        [dict setObject:@"" forKey:CommunityImageKey];
+        
+        [self.communities addObject:dict];
+    }
+    
+    self.categories = [[NSMutableArray alloc] init];
+    
+    NSArray *array2 = @[@"特色体验",
+                        @"演出表演",
+                        @"当地导游",
+                        @"电话卡",
+                        @"户外探险",
+                        @"体育赛事",
+                        @"当地商务翻译",
+                        @"移动wifi网卡",
+                        @"当地参团",
+                        @"体验课程",
+                        @"酒店客栈",
+                        @"交通卡",
+                        @"自驾租车",
+                        @"购物折扣券",
+                        @"接送服务",
+                        @"旅行保险",
+                        @"门票",
+                        @"签证"];
+    
+    for(NSString *s in array2)
+    {
+        dict = [[NSMutableDictionary alloc] init];
+        
+        [dict setObject:s forKey:@"name"];
+        [dict setObject:@"" forKey:@"image"];
+        
+        [self.categories addObject:dict];
+    }
+    
+    [self saveDataModel];
+}
+
 @end
