@@ -149,7 +149,7 @@ static NSString *ProductArrayKey = @"Products";
         [communityDict setObject:[innerArray objectAtIndex:1] forKey:CommunityNameKey];
         [communityDict setObject:[innerArray objectAtIndex:2] forKey:CommunityAreaKey];
         [communityDict setObject:[innerArray objectAtIndex:3] forKey:CommunityDescKey];
-        [communityDict setObject:[innerArray objectAtIndex:4] forKey:CommunityImageKey];
+        //[communityDict setObject:[innerArray objectAtIndex:4] forKey:CommunityImageKey];
         
         [self.communities addObject:communityDict];
     }
@@ -439,17 +439,44 @@ static NSString *ProductArrayKey = @"Products";
                        @"大洋洲",
                        @"南美洲",
                        @"非洲",
-                       @"中东"];
+                        @"中东",
+                       @"加勒比"];
+    
+    NSArray *images = @[@[@"Menu1.jpg", @"Menu2.jpg", @"Menu3.jpg", @"Menu4.jpg"],
+                        @[@"NorthAmerica1.jpg", @"NorthAmerica2.jpg", @"NorthAmerica3.jpg", @"NorthAmerica4.jpg"],
+                        @[@"Europe1.jpg", @"Europe2.jpg", @"Europe3.jpg", @"Europe4.jpg"],
+                        @[@"Asia1.jpg", @"Asia2.jpg", @"Asia3.jpg", @"Asia4.jpg"],
+                        @[@"Oceania1.jpg", @"Oceania2.jpg", @"Oceania3.jpg", @"Oceania4.jpg"],
+                        @[@"SouthAmerica1.jpg", @"SouthAmerica2.jpg", @"SouthAmerica3.jpg", @"SouthAmerica4.jpg"],
+                        @[@"Africa1.jpg", @"Africa2.jpg", @"Africa3.jpg", @"Africa4.jpg"],
+                        @[@"MiddleEast1.jpg", @"MiddleEast2.jpg", @"MiddleEast3.jpg", @"MiddleEast4.jpg"],
+                        @[@"Carribbean1.jpg", @"Carribbean2.jpg", @"Carribbean3.jpg", @"Carribbean4.jpg"]];
 
-    for(NSString *s in array1)
+    //int i = 0;
+    for(int i = 0; i < [array1 count]; i++)
+    //for(NSString *s in array1)
     {
+        NSString *s = [array1 objectAtIndex:i];
         dict = [[NSMutableDictionary alloc] init];
         
         [dict setObject:s forKey:CommunityIDKey];
         [dict setObject:s forKey:CommunityNameKey];
         [dict setObject:@"" forKey:CommunityAreaKey];
         [dict setObject:@"" forKey:CommunityDescKey];
-        [dict setObject:@"" forKey:CommunityImageKey];
+        
+        NSArray *innerArray = [images objectAtIndex:i];
+        if([innerArray count] > 0)
+        {
+            [dict setObject:[[images objectAtIndex:i] objectAtIndex:0] forKey:CommunityImage1Key];
+            [dict setObject:[[images objectAtIndex:i] objectAtIndex:1] forKey:CommunityImage2Key];
+            [dict setObject:[[images objectAtIndex:i] objectAtIndex:2] forKey:CommunityImage3Key];
+            [dict setObject:[[images objectAtIndex:i] objectAtIndex:3] forKey:CommunityImage4Key];
+        } else {
+            [dict setObject:@"" forKey:CommunityImage1Key];
+            [dict setObject:@"" forKey:CommunityImage2Key];
+            [dict setObject:@"" forKey:CommunityImage3Key];
+            [dict setObject:@"" forKey:CommunityImage4Key];
+        }
         
         [self.communities addObject:dict];
     }

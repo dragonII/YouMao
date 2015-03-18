@@ -15,5 +15,6 @@
 @property ShowViewBySourceType showProductViewFrom;
 
 @property (copy, nonatomic) NSString *productID;
+@property (assign, nonatomic) NSInteger selectedProductIndex;
 
 @end

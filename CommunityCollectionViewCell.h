@@ -15,6 +15,7 @@
 @property (strong, nonatomic) LTransitionImageView *transitionView;
 
 @property (strong, nonatomic) NSMutableArray *images;
+@property (strong, nonatomic) NSMutableArray *imageNamesArray;
 
 @property (strong, nonatomic) UILabel *textLabel;
 

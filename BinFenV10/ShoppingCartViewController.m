@@ -284,9 +284,9 @@ typedef enum
         [self.itemCheckedDict setObject:@0 forKey:[[self.cartItemsArray objectAtIndex:i] objectForKey:@"productID"]];
     }
     
-    NSLog(@"cartItem: %@", self.cartItemsArray);
-    NSLog(@"shops: %@", self.shopsArray);
-    NSLog(@"Sorted: %@", self.sortCartItemArray);
+    //NSLog(@"cartItem: %@", self.cartItemsArray);
+    //NSLog(@"shops: %@", self.shopsArray);
+    //NSLog(@"Sorted: %@", self.sortCartItemArray);
 }
 
 - (void)initBottomView

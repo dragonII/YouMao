@@ -137,7 +137,6 @@ static const NSInteger SeperatorCellIndex = 3;
     CGFloat bottomViewHeight = 44.0f;
     
     DeviceHardwareGeneralPlatform generalPlatform = [DeviceHardware generalPlatform];
-    NSLog(@"generalPlatform: %d", generalPlatform);
     
     switch (generalPlatform)
     {
@@ -247,6 +246,7 @@ static const NSInteger SeperatorCellIndex = 3;
     //NSLog(@"%@", self.dataModel.products);
     
     //self.product = [[NSMutableDictionary alloc] init];
+    /*
     for(NSDictionary *dict in self.dataModel.products)
     {
         if([self.productID isEqualToString:[dict objectForKey:@"ID"]])
@@ -254,18 +254,23 @@ static const NSInteger SeperatorCellIndex = 3;
             self.product = [NSMutableDictionary dictionaryWithDictionary:dict];
         }
     }
+     */
+    self.product = [NSMutableDictionary dictionaryWithDictionary:[self.dataModel.products objectAtIndex:self.selectedProductIndex]];
     
     if(self.product != nil)
     {
         self.navigationItem.title = [self.product objectForKey:@"name"];
     }
     
+    /*
     [self.dataModel loadCommentsByProductID:self.productID];
-    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1
                                                   target:self
                                                 selector:@selector(loadingCommentData)
                                                 userInfo:nil repeats:YES];
+     */
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -318,7 +323,9 @@ static const NSInteger SeperatorCellIndex = 3;
                     cell = [[ProductImageCell alloc] init];
                 }
                 
-                cell.imageNamesArray = @[[self.product objectForKey:@"image"]];
+                //cell.imageNamesArray = @[[self.product objectForKey:@"image"]];
+                cell.imageNamesArray = @[[self.product objectForKey:@"image1"],
+                                         [self.product objectForKey:@"image2"]];
                 return cell;
             }
             case ProductPriceCellIndex:

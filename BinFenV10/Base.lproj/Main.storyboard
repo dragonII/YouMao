@@ -510,6 +510,7 @@
                         <segue destination="nuf-EP-vNP" kind="show" identifier="ShowCommunitySegue" id="cCj-5z-a9i"/>
                         <segue destination="Zbh-th-tAl" kind="presentation" identifier="SelectCommunitySegue" id="DCd-Ke-7JW"/>
                         <segue destination="9vL-Rp-3Nl" kind="show" identifier="ShowShopSegueFromTabHome" id="ppH-wg-Xq7"/>
+                        <segue destination="tJZ-Q1-K8P" kind="show" identifier="ShowProductDetailFromHomeSegue" id="0Bd-mo-3Kb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHC-aL-dEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2174,6 +2175,7 @@
         <image name="SaveButtonBG" width="288" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Bd-mo-3Kb"/>
         <segue reference="ppH-wg-Xq7"/>
         <segue reference="RvF-dV-8Mx"/>
     </inferredMetricsTieBreakers>

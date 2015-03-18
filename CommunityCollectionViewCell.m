@@ -24,10 +24,13 @@ static AnimationDirection directions[4];
     // Array of images
     self.images = [NSMutableArray array];
     
+
+    /*
     [self.images addObject:[UIImage imageNamed:@"Default_120x160"]];
     [self.images addObject:[UIImage imageNamed:@"Default_120x160_1"]];
     [self.images addObject:[UIImage imageNamed:@"E1"]];
     [self.images addObject:[UIImage imageNamed:@"E2"]];
+     */
     
     // 使用LTransitionImageView
     self.transitionView = [[LTransitionImageView alloc] initWithFrame:self.contentView.bounds];
@@ -35,10 +38,11 @@ static AnimationDirection directions[4];
     int r = [self loadRandomNumberInRange:4];
     self.transitionView.animationDirection = directions[r];
     //NSLog(@"Direction: %d", self.transitionView.animationDirection);
-    self.transitionView.image = [self.images objectAtIndex:[self loadRandomNumberInRange:(int)[self.images count]]];
+    //self.transitionView.image = [self.images objectAtIndex:[self loadRandomNumberInRange:(int)[self.images count]]];
     [self.contentView addSubview:self.transitionView];
     
-    [self transitionAnimations];
+    
+    //[self transitionAnimations];
     
     
     self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.contentView.bounds.origin.x,
@@ -96,6 +100,36 @@ static AnimationDirection directions[4];
         _text = [text copy];
         _textLabel.text = _text;
     }
+}
+
+
+- (void)setImageNamesArray:(NSMutableArray *)imageNamesArray
+{
+    _imageNamesArray = [NSMutableArray arrayWithArray:imageNamesArray];
+ 
+    //NSLog(@"%s: %@", __func__, self.imageNamesArray);
+    
+    self.images = [[NSMutableArray alloc] init];
+    
+    for(NSString *s in self.imageNamesArray)
+    {
+        if([s length] != 0)
+            [self.images addObject:[UIImage imageNamed:s]];
+    }
+    
+    if([self.images count] == 0)
+    {
+        [self.images addObject:[UIImage imageNamed:@"Default_120x160"]];
+        [self.images addObject:[UIImage imageNamed:@"Default_120x160_1"]];
+        [self.images addObject:[UIImage imageNamed:@"E1"]];
+        [self.images addObject:[UIImage imageNamed:@"E2"]];
+    }
+    
+    self.transitionView.image = [self.images objectAtIndex:[self loadRandomNumberInRange:(int)[self.images count]]];
+    //[self.contentView addSubview:self.transitionView];
+    
+    
+    [self transitionAnimations];
 }
 
 

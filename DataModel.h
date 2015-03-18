@@ -24,7 +24,10 @@ static NSString *CommunityIDKey = @"ID";
 static NSString *CommunityNameKey = @"name";
 static NSString *CommunityAreaKey = @"area";
 static NSString *CommunityDescKey = @"description";
-static NSString *CommunityImageKey = @"image";
+static NSString *CommunityImage1Key = @"image1";
+static NSString *CommunityImage2Key = @"image2";
+static NSString *CommunityImage3Key = @"image3";
+static NSString *CommunityImage4Key = @"image4";
 
 static NSString *ProductIDKey = @"ID";
 static NSString *ProductNameKey = @"name";

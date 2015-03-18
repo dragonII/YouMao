@@ -59,7 +59,11 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.frame = CGRectMake(x + (imageViewWidth * i), 0, imageViewWidth, imageViewHeight);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [imageView setImageWithURL:[NSURL URLWithString:[self.imageNamesArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"Default_320x200"]];
+        NSString *imageString = [self.imageNamesArray objectAtIndex:i];
+        if([imageString length] == 0)
+            [imageView setImage:[UIImage imageNamed:@"Default_320x200"]];
+        else
+            [imageView setImageWithURL:[NSURL URLWithString:[self.imageNamesArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"Default_320x200"]];
         
         [self.scrollView addSubview:imageView];
     }

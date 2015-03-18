@@ -22,6 +22,7 @@
 #import "CommunityViewController.h"
 
 #import "ShopViewController.h"
+#import "ProductDetailViewController.h"
 
 #import "defs.h"
 
@@ -231,7 +232,7 @@ static const NSInteger RefreshSectionIndex = 3;
 
 - (void)initViews
 {
-    self.otCoverView = [[OTCover alloc] initWithTableViewWithHeaderImage:[UIImage imageNamed:@"Default_170×320"] withOTCoverHeight:170];
+    self.otCoverView = [[OTCover alloc] initWithTableViewWithHeaderImage:[UIImage imageNamed:@"MainImage.jpg"] withOTCoverHeight:170];
     
     self.otCoverView.tableView.delegate = self;
     self.otCoverView.tableView.dataSource = self;
@@ -316,6 +317,18 @@ static const NSInteger RefreshSectionIndex = 3;
     
     //cell.text = [self.communitiesDataList objectAtIndex:indexPath.row];
     cell.text = [[self.dataModel.communities objectAtIndex:indexPath.row] objectForKey:@"name"];
+    
+
+    
+    NSString *image1 = [[self.dataModel.communities objectAtIndex:indexPath.row] objectForKey:CommunityImage1Key];
+    NSString *image2 = [[self.dataModel.communities objectAtIndex:indexPath.row] objectForKey:CommunityImage2Key];
+    NSString *image3 = [[self.dataModel.communities objectAtIndex:indexPath.row] objectForKey:CommunityImage3Key];
+    NSString *image4 = [[self.dataModel.communities objectAtIndex:indexPath.row] objectForKey:CommunityImage4Key];
+    
+    NSInteger index = indexPath.row;
+    NSLog(@"%s: %ld, %@", __func__, (long)index, @[image1, image2, image3, image4]);
+    
+    cell.imageNamesArray = [NSMutableArray arrayWithArray:@[image1, image2, image3, image4]];
 
     return cell;
 }
@@ -339,6 +352,7 @@ static const NSInteger RefreshSectionIndex = 3;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     CommunityCollectionViewCell *cell = (CommunityCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if(![self.communitiyIndexArray containsObject:indexPath])
     {
@@ -347,6 +361,7 @@ static const NSInteger RefreshSectionIndex = 3;
 
     self.selectedCommunityIndex = indexPath.row;
     [self performSegueWithIdentifier:@"ShowCommunitySegue" sender:self];
+     */
 }
 
 
@@ -752,6 +767,12 @@ static const NSInteger RefreshSectionIndex = 3;
         
         //[self showNavigationItem];
     }
+    if([segue.identifier isEqualToString:@"ShowProductDetailFromHomeSegue"])
+    {
+        ProductDetailViewController *productDetailVC = (ProductDetailViewController *)segue.destinationViewController;
+        productDetailVC.hidesBottomBarWhenPushed = YES;
+        productDetailVC.selectedProductIndex = self.selectedShopIndex;
+    }
 }
 
 #pragma OTCoverSegueDelegate
@@ -773,7 +794,8 @@ static const NSInteger RefreshSectionIndex = 3;
 - (void)shopItemClickedInCell:(ShopsCell *)cell
 {
     self.selectedShopIndex = cell.selectedShopIndex;
-    [self performSegueWithIdentifier:@"ShowShopSegueFromTabHome" sender:self];
+    //[self performSegueWithIdentifier:@"ShowShopSegueFromTabHome" sender:self];
+    [self performSegueWithIdentifier:@"ShowProductDetailFromHomeSegue" sender:self];
 }
 
 
