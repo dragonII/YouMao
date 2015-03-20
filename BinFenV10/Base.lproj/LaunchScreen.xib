@@ -11,49 +11,45 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="p3J-f0-UrL">
-                    <rect key="frame" x="20" y="14" width="450" height="433"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="433" id="BN6-RR-xbH"/>
-                        <constraint firstAttribute="width" constant="450" id="cSb-CF-ZyX"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="BN6-RR-xbH"/>
-                            <exclude reference="cSb-CF-ZyX"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="BN6-RR-xbH"/>
-                            <include reference="cSb-CF-ZyX"/>
-                        </mask>
-                    </variation>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImageCat" translatesAutoresizingMaskIntoConstraints="NO" id="FQF-dT-gvc">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="p3J-f0-UrL" secondAttribute="centerY" id="JdF-Kn-2zR"/>
-                <constraint firstAttribute="centerX" secondItem="p3J-f0-UrL" secondAttribute="centerX" id="kWK-B8-d0Q"/>
+                <constraint firstAttribute="trailing" secondItem="FQF-dT-gvc" secondAttribute="trailing" id="OzD-iF-Nhf"/>
+                <constraint firstAttribute="bottom" secondItem="FQF-dT-gvc" secondAttribute="bottom" id="dea-4h-v0k"/>
+                <constraint firstItem="FQF-dT-gvc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="e0c-Oe-72x"/>
+                <constraint firstItem="FQF-dT-gvc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wwq-Ya-LbB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="FQF-dT-gvc"/>
+                </mask>
                 <mask key="constraints">
-                    <exclude reference="JdF-Kn-2zR"/>
-                    <exclude reference="kWK-B8-d0Q"/>
+                    <exclude reference="OzD-iF-Nhf"/>
+                    <exclude reference="dea-4h-v0k"/>
+                    <exclude reference="e0c-Oe-72x"/>
+                    <exclude reference="wwq-Ya-LbB"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="FQF-dT-gvc"/>
+                </mask>
                 <mask key="constraints">
-                    <include reference="JdF-Kn-2zR"/>
-                    <include reference="kWK-B8-d0Q"/>
+                    <include reference="OzD-iF-Nhf"/>
+                    <include reference="dea-4h-v0k"/>
+                    <include reference="e0c-Oe-72x"/>
+                    <include reference="wwq-Ya-LbB"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
-        <image name="Launch" width="900" height="866"/>
+        <image name="LaunchImageCat" width="414" height="736"/>
     </resources>
 </document>

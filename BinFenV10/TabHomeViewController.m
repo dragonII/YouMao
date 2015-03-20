@@ -298,9 +298,18 @@ static const NSInteger RefreshSectionIndex = 3;
     [self initViews];
 }
 
+/*
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [self showNavigationItem];
+}
+ */
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
     
     [self showNavigationItem];
 }
