@@ -35,6 +35,7 @@
         self.scrollView.delegate = self;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.bounces = YES;
+        self.scrollView.pagingEnabled = YES;
         
         self.pageControl = [[UIPageControl alloc] init];
         self.pageControl.currentPageIndicatorTintColor = [UIColor blueColor];

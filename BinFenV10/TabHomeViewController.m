@@ -298,21 +298,22 @@ static const NSInteger RefreshSectionIndex = 3;
     [self initViews];
 }
 
-/*
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
     [self showNavigationItem];
 }
- */
 
+
+/*
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     
     [self showNavigationItem];
 }
+ */
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -615,17 +616,29 @@ static const NSInteger RefreshSectionIndex = 3;
     CGFloat topImageViewHeight = 64.0f;
     CGFloat buttonWidth = 106.0f;
     
-    CGRect popoverFrame = CGRectMake(5 + (buttonWidth * self.categoryButtonIndex),
-                                     topImageViewHeight + buttonHeight,
-                                     self.view.bounds.size.width - 10,
-                                     44 * 7);// Only display 7 lines most
+    NSArray *array = [NSArray arrayWithArray:[self.categoriesDataList objectAtIndex:self.categoryButtonIndex]];
+    
     // Hide already showing popover
     if(self.categoryPopover)
     {
         [self.categoryPopover dismissMenuPopover];
     }
     
-    //self.categoryPopover = [[MLKMenuPopover alloc] initWithFrame:popoverFrame menuItems:self.categoriesDataList];
+    CGRect popoverFrame;
+    
+    if([array count] >= 7) // Only displays 7 lines most
+    {
+        popoverFrame = CGRectMake(5 + (buttonWidth * self.categoryButtonIndex),
+                                  topImageViewHeight + buttonHeight,
+                                  self.view.bounds.size.width - 10,
+                                  44 * 7);
+    } else {
+        popoverFrame = CGRectMake(5 + (buttonWidth * self.categoryButtonIndex),
+                                  topImageViewHeight + buttonHeight,
+                                  self.view.bounds.size.width - 10,
+                                  44 * [array count]);
+    }
+    
     self.categoryPopover = [[MLKMenuPopover alloc] initWithFrame:popoverFrame menuItems:[self.categoriesDataList objectAtIndex:self.categoryButtonIndex]];
     self.categoryPopover.menuPopoverDelegate = self;
     [self.categoryPopover showInView:self.view];
@@ -798,6 +811,11 @@ static const NSInteger RefreshSectionIndex = 3;
         ProductDetailViewController *productDetailVC = (ProductDetailViewController *)segue.destinationViewController;
         productDetailVC.hidesBottomBarWhenPushed = YES;
         productDetailVC.selectedProductIndex = self.selectedShopIndex;
+    }
+    if([segue.identifier isEqualToString:@"SelectCommunitySegue"])
+    {
+        NSLog(@"%s", __func__);
+        [self hideNavigationItem];
     }
 }
 

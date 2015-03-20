@@ -69,7 +69,7 @@
         [self.containerButton addSubview:menuPointerView];
         
         // Adding menu Items table
-        UITableView *menuItemsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 11, frame.size.width, frame.size.height)];
+        UITableView *menuItemsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 11 - 1, frame.size.width, frame.size.height)];
         
         menuItemsTableView.dataSource = self;
         menuItemsTableView.delegate = self;

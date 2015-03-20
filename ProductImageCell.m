@@ -52,8 +52,9 @@
     CGFloat x = 0;
     CGFloat imageViewWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat imageViewHeight = 200.0f;
-    
-    for(int i = 0; i < [self.imageNamesArray count]; i++)
+    int i = 0;
+    int j = 0;
+    for(i = 0, j = 0; i < [self.imageNamesArray count]; i++)
     {
         NSLog(@"imageName: %@", [self.imageNamesArray objectAtIndex:i]);
         UIImageView *imageView = [[UIImageView alloc] init];
@@ -61,16 +62,21 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         NSString *imageString = [self.imageNamesArray objectAtIndex:i];
         if([imageString length] == 0)
+        {
             //[imageView setImage:[UIImage imageNamed:@"Default_320x200"]];
             continue;
+        }
         else
+        {
             [imageView setImage:[UIImage imageNamed:imageString]];
+            j++;
+        }
         
         [self.scrollView addSubview:imageView];
     }
-    self.scrollView.contentSize = CGSizeMake([self.imageNamesArray count] * scrollViewWidth, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(j * scrollViewWidth, self.scrollView.frame.size.height);
     
-    self.pageControl.numberOfPages = [self.imageNamesArray count];
+    self.pageControl.numberOfPages = j;
     self.pageControl.currentPage = 0;
 }
 
