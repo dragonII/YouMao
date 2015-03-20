@@ -95,13 +95,6 @@
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, height)];
     [self.headerImageView setImage:headerImage];
     
-    
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 100, width - 40, 30)];
-    //searchBar.barStyle = UIBarStyleBlackTranslucent;
-    searchBar.searchBarStyle = UISearchBarStyleMinimal;
-    searchBar.placeholder = @"游猫旅行    与你共享深度旅行体验";
-    [self.headerImageView addSubview:searchBar];
      
     [self addSubview:self.headerImageView];
     
@@ -113,6 +106,21 @@
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, height)];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.showsVerticalScrollIndicator = NO;
+    
+    
+    CGFloat searchWidth = 320;
+    CGFloat searchHeight = 40;
+    
+    UIImageView *searchImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.bounds) - searchWidth / 2, 100, searchWidth, searchHeight)];
+    searchImageView.image = [UIImage imageNamed:@"SearchBox6P.png"];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [searchImageView setUserInteractionEnabled:YES];
+    [searchImageView addGestureRecognizer:singleTap];
+    
+    [self.tableView addSubview:searchImageView];
+    
+    
     [self addSubview:self.tableView];
     
     [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
