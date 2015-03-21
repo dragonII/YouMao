@@ -17,6 +17,7 @@
 		2F01E7CE1A87C54C006BDDAB /* SeperatorTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F01E7CC1A87C54C006BDDAB /* SeperatorTableCell.xib */; };
 		2F0475061A813D1B00196F0B /* ShopsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0475041A813D1B00196F0B /* ShopsCell.m */; };
 		2F0475071A813D1B00196F0B /* ShopsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0475051A813D1B00196F0B /* ShopsCell.xib */; };
+		2F0EEC851ABDC21E0079449A /* Searchbar6P.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0EEC841ABDC21E0079449A /* Searchbar6P.png */; };
 		2F14CD701A8BA50E004125F6 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14CD6F1A8BA50E004125F6 /* UserInfoViewController.m */; };
 		2F14CD731A8BAE7C004125F6 /* EditUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14CD721A8BAE7C004125F6 /* EditUserInfoViewController.m */; };
 		2F1FEEB61AA5680A00E0845E /* CommunityData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FEEB51AA5680A00E0845E /* CommunityData.m */; };
@@ -47,7 +48,6 @@
 		2F31B23C1A83D74D00A2BB86 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31B2341A83D74D00A2BB86 /* UIWebView+AFNetworking.m */; };
 		2F34CEE81A8878ED000AD896 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CEE71A8878ED000AD896 /* CommentTableViewCell.m */; };
 		2F34CEF41A88AC35000AD896 /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CEF31A88AC35000AD896 /* ShoppingCartViewController.m */; };
-		2F396D291ABBCF430015E765 /* SearchBox6P.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F396D281ABBCF430015E765 /* SearchBox6P.png */; };
 		2F480A911A864BB60034CA65 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F480A901A864BB60034CA65 /* ProductDetailViewController.m */; };
 		2F4A63AA1A89049D00B30986 /* CommunitySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4A63A91A89049D00B30986 /* CommunitySelectionViewController.m */; };
 		2F4A63AE1A890D5300B30986 /* CommunityForSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4A63AC1A890D5300B30986 /* CommunityForSelectionCell.m */; };
@@ -272,6 +272,7 @@
 		2F0475031A813D1B00196F0B /* ShopsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopsCell.h; sourceTree = "<group>"; };
 		2F0475041A813D1B00196F0B /* ShopsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopsCell.m; sourceTree = "<group>"; };
 		2F0475051A813D1B00196F0B /* ShopsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopsCell.xib; sourceTree = "<group>"; };
+		2F0EEC841ABDC21E0079449A /* Searchbar6P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Searchbar6P.png; sourceTree = "<group>"; };
 		2F14CD6E1A8BA50E004125F6 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		2F14CD6F1A8BA50E004125F6 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		2F14CD711A8BAE7C004125F6 /* EditUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditUserInfoViewController.h; sourceTree = "<group>"; };
@@ -333,7 +334,6 @@
 		2F34CEE71A8878ED000AD896 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		2F34CEF21A88AC35000AD896 /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
 		2F34CEF31A88AC35000AD896 /* ShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
-		2F396D281ABBCF430015E765 /* SearchBox6P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchBox6P.png; sourceTree = "<group>"; };
 		2F480A8F1A864BB60034CA65 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		2F480A901A864BB60034CA65 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		2F4A63A81A89049D00B30986 /* CommunitySelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunitySelectionViewController.h; sourceTree = "<group>"; };
@@ -818,7 +818,7 @@
 		2F9085C41AB977F800D037E8 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				2F396D281ABBCF430015E765 /* SearchBox6P.png */,
+				2F0EEC841ABDC21E0079449A /* Searchbar6P.png */,
 				2F9085E51AB987E200D037E8 /* MainImage.jpg */,
 				2F9086071AB98E8C00D037E8 /* Menu1.jpg */,
 				2F9086081AB98E8C00D037E8 /* Menu2.jpg */,
@@ -1334,6 +1334,7 @@
 				2F90861C1AB990E000D037E8 /* food.png in Resources */,
 				2FDA12161A8DD7B400A60362 /* bubble-default-incoming-green.png in Resources */,
 				2F9085CB1AB9780B00D037E8 /* Asia3.jpg in Resources */,
+				2F0EEC851ABDC21E0079449A /* Searchbar6P.png in Resources */,
 				2F9085DC1AB9861F00D037E8 /* Oceania4.jpg in Resources */,
 				2F9085FD1AB98C6800D037E8 /* MiddleEast3.jpg in Resources */,
 				2F90863A1AB9996A00D037E8 /* EmpireStateBuilding3.jpg in Resources */,
@@ -1364,7 +1365,6 @@
 				2F9085EE1AB98B1300D037E8 /* SouthAmerica4.jpg in Resources */,
 				2F9085D11AB984E500D037E8 /* NorthAmerica1.jpg in Resources */,
 				2F9086041AB98E5B00D037E8 /* Carribbean2.jpg in Resources */,
-				2F396D291ABBCF430015E765 /* SearchBox6P.png in Resources */,
 				2F9085F41AB98BC100D037E8 /* Africa2.jpg in Resources */,
 				2FDA123F1A8DD7B400A60362 /* send-highlighted@2x.png in Resources */,
 				2F90865F1AB99A7900D037E8 /* langkawi1.jpg in Resources */,

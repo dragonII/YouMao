@@ -101,14 +101,14 @@ static const NSInteger SeperatorCellIndex = 3;
     [self.addToCartButton setBackgroundImage:[UIImage imageNamed:@"AddToCart"] forState:UIControlStateNormal];
     [self.addToCartButton setBackgroundImage:[UIImage imageNamed:@"AddToCartSelected"] forState:UIControlStateSelected];
     [self.addToCartButton addTarget:self action:@selector(addToCartClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:self.addToCartButton];
+    //[bottomView addSubview:self.addToCartButton];
     
     self.quantityInCartLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 16, 35, 12)];
     UIFont *font = [UIFont fontWithName:@"STHeitiSC-Light" size:12];
     self.quantityInCartLabel.font = font;
     self.quantityInCartLabel.textColor = [UIColor redColor];
     self.quantityInCartLabel.text = @"0";
-    [bottomView addSubview:self.quantityInCartLabel];
+    //[bottomView addSubview:self.quantityInCartLabel];
     
     /*
     self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(98, 12, 20, 20)];
@@ -122,8 +122,10 @@ static const NSInteger SeperatorCellIndex = 3;
                                          7,
                                          orderButtonWidth, orderButtonHeight);
     self.orderButton = [[UIButton alloc] initWithFrame:orderButtonFrame];
-    [self.orderButton setTitle:@"购物车" forState:UIControlStateNormal];
-    self.orderButton.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"OrderButtonBG"]];
+    [self.orderButton setTitle:@"点击购买" forState:UIControlStateNormal];
+    self.orderButton.layer.cornerRadius = 5.0f;
+    //self.orderButton.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"OrderButtonBG"]];
+    self.orderButton.backgroundColor = [UIColor colorWithRed:70/255.0f green:159/255.0f blue:183/255.0f alpha:1.0f];
     [self.orderButton addTarget:self action:@selector(orderClicked:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:self.orderButton];
     

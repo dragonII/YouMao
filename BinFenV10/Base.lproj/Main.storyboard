@@ -473,11 +473,11 @@
             </objects>
             <point key="canvasLocation" x="1821" y="619.5"/>
         </scene>
-        <!--缤纷-->
+        <!--游猫-->
         <scene sceneID="spv-18-tLo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u3q-zj-azl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="缤纷" image="Home" id="f1l-pG-U5a"/>
+                    <tabBarItem key="tabBarItem" title="游猫" image="Home" id="f1l-pG-U5a"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eed-CB-BuI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1257,7 +1257,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="BoY-zl-oiW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="BoY-zl-oiW">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="77N-vL-H68"/>
@@ -1276,7 +1276,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-bW-pjj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-bW-pjj">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="191" id="UYv-dj-mnp"/>
@@ -2159,13 +2159,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AboutLogo" width="120" height="120"/>
         <image name="AgreeYes" width="12" height="10"/>
         <image name="BadComment" width="44" height="44"/>
         <image name="Close" width="18" height="18"/>
         <image name="GoodComment" width="44" height="44"/>
         <image name="HistoryOrderIcon" width="44" height="44"/>
         <image name="Home" width="30" height="30"/>
+        <image name="Logo" width="60" height="60"/>
         <image name="Message" width="30" height="30"/>
         <image name="MiddleComment" width="44" height="44"/>
         <image name="Myself" width="30" height="30"/>
@@ -2175,8 +2175,8 @@
         <image name="SaveButtonBG" width="288" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Bd-mo-3Kb"/>
         <segue reference="ppH-wg-Xq7"/>
+        <segue reference="0Bd-mo-3Kb"/>
         <segue reference="RvF-dV-8Mx"/>
     </inferredMetricsTieBreakers>
 </document>

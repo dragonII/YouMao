@@ -19,7 +19,8 @@
 @property (nonatomic, strong) NSMutableArray *blurImages;
 @property (nonatomic, assign) CGFloat OTCoverHeight;
 @property (nonatomic, strong) UIView* scrollHeaderView;
-@property (nonatomic, strong) UIImageView *searchView;
+//@property (nonatomic, strong) UIImageView *searchView;
+@property (nonatomic, strong) UIView *searchView;
 
 @property BOOL searchViewHideDone;
 @property BOOL searchViewShowDone;
@@ -69,9 +70,19 @@
 
 - (void)initSearchView
 {
-    self.searchView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 64)];
+    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 64)];
+    self.searchView.backgroundColor = [UIColor colorWithRed:70/255.0f green:159/255.0f blue:183/255.0f alpha:1.0f];
     //self.searchView.image = [UIImage imageNamed:@"SearchBarInHome"];
-    self.searchView.image = [UIImage imageNamed:[self getImageNameByDevice]];
+    //self.searchView.image = [UIImage imageNamed:[self getImageNameByDevice]];
+    //self.searchView.contentMode = UIViewContentModeScaleAspectFit;
+    //self.searchView.image = [UIImage imageNamed:@"SearchBox6P.png"];
+    CGFloat labelWidth = 200;
+    CGFloat labelHeight = 44;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.searchView.bounds) - 100,
+                                                               20, labelWidth, labelHeight)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"游猫";
+    [self.searchView addSubview:label];
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
     singleTap.numberOfTapsRequired = 1;
@@ -112,7 +123,7 @@
     CGFloat searchHeight = 40;
     
     UIImageView *searchImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.bounds) - searchWidth / 2, 100, searchWidth, searchHeight)];
-    searchImageView.image = [UIImage imageNamed:@"SearchBox6P.png"];
+    searchImageView.image = [UIImage imageNamed:@"Searchbar6P.png"];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
     singleTap.numberOfTapsRequired = 1;
     [searchImageView setUserInteractionEnabled:YES];

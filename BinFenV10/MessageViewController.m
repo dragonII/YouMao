@@ -24,10 +24,7 @@ static NSString *ConversationCellIdentifier = @"ConversationCell";
 
 - (void)initNavigationItem
 {
-    UIColor *backgroundColor = [UIColor colorWithRed:253/255.0f
-                                               green:150/255.0f
-                                                blue:93/255.0f
-                                               alpha:1.0f];
+    UIColor *backgroundColor = [UIColor colorWithRed:70/255.0f green:159/255.0f blue:183/255.0f alpha:1.0f];
     self.navigationItem.title = @"消息";
     [self.navigationController.navigationBar setBarTintColor:backgroundColor];
     [self.navigationController.navigationBar setTranslucent:NO];
@@ -54,7 +51,7 @@ static NSString *ConversationCellIdentifier = @"ConversationCell";
     
     [self initNavigationItem];
     
-    [self showLoginViewController];
+    //[self showLoginViewController];
     
     [self loadConversations];
     
