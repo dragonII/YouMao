@@ -21,6 +21,8 @@
     self.navigationItem.title = @"关于游猫";
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

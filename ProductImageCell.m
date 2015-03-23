@@ -84,7 +84,8 @@
 {
     CGFloat x = 0;
     
-    CGFloat scrollViewWidth = self.scrollView.bounds.size.width;
+    //CGFloat scrollViewWidth = self.scrollView.bounds.size.width;
+    CGFloat scrollViewWidth = [UIScreen mainScreen].bounds.size.width;
     
     CGFloat imageViewWidth = [UIScreen mainScreen].bounds.size.width;
     

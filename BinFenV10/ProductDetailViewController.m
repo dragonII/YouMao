@@ -25,8 +25,9 @@ static NSString *ProductDescriptionIdentifier = @"ProductDescription";
 static NSString *SeperatorIdentifier = @"Seperator";
 static NSString *CommentCellIdentifier = @"CommentCell";
 
-static const NSInteger SectionBasicInfo = 0;
-static const NSInteger SectionComments = 1;
+static const NSInteger SectionImageAndPriceInfo = 0;
+static const NSInteger SectionBasicInfo = 1;
+static const NSInteger SectionComments = 2;
 
 static const NSInteger ProductImageCellIndex = 0;
 static const NSInteger ProductPriceCellIndex = 1;
@@ -94,7 +95,7 @@ static const NSInteger SeperatorCellIndex = 3;
 {
     CGRect mainFrame = self.view.bounds;
     CGFloat bottomViewHeight = 44;
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, mainFrame.size.height - bottomViewHeight, mainFrame.size.width, 44)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, mainFrame.size.height - bottomViewHeight - 64, mainFrame.size.width, 44)];
     bottomView.backgroundColor = [UIColor whiteColor];
     
     self.addToCartButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 7, 34, 30)];
@@ -262,6 +263,9 @@ static const NSInteger SeperatorCellIndex = 3;
     if(self.product != nil)
     {
         self.navigationItem.title = [self.product objectForKey:@"name"];
+        UIColor *backgroundColor = [UIColor colorWithRed:70/255.0f green:159/255.0f blue:183/255.0f alpha:1.0f];
+        [self.navigationController.navigationBar setBarTintColor:backgroundColor];
+        [self.navigationController.navigationBar setTranslucent:NO];
     }
     
     /*
@@ -282,18 +286,22 @@ static const NSInteger SeperatorCellIndex = 3;
 
 #pragma TableView Delegate, DataSource
 
-// 含有2个Section，商品基本信息和用户评论信息，当无评论时，section隐藏
+// 含有3个Section，图片，商品基本信息和用户评论信息，当无评论时，section隐藏
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 //Image, Price, Description, Seperator, Comments (0 or N)
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == SectionImageAndPriceInfo)
+    {
+        return 2; // Image and Price
+    }
     if(section == SectionBasicInfo)
     {
-        return 4;
+        return 2; // Desc and separator
     }
     //具体评论信息数目根据来自服务器的信息为准，从0到N
     if(section == SectionComments)
@@ -311,38 +319,41 @@ static const NSInteger SeperatorCellIndex = 3;
         return 0;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == SectionImageAndPriceInfo)
+    {
+        if(indexPath.row == 0)
+        {
+            ProductImageCell *cell = (ProductImageCell *)[tableView dequeueReusableCellWithIdentifier:ProductImageCellIdentifier];
+            if(cell == nil)
+            {
+                cell = [[ProductImageCell alloc] init];
+            }
+            
+            //cell.imageNamesArray = @[[self.product objectForKey:@"image"]];
+            cell.imageNamesArray = @[[self.product objectForKey:@"image1"],
+                                     [self.product objectForKey:@"image2"],
+                                     [self.product objectForKey:@"image3"],
+                                     [self.product objectForKey:@"image4"]];
+            return cell;
+        } else
+        {
+            PriceTableCell *cell = (PriceTableCell *)[tableView dequeueReusableCellWithIdentifier:ProductPriceCellIdentifier];
+            if(cell == nil)
+            {
+                cell = [[PriceTableCell alloc] init];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+    }
     if(indexPath.section == SectionBasicInfo)
     {
         switch (indexPath.row)
         {
-            case ProductImageCellIndex: //ProductImageCell
-            {
-                ProductImageCell *cell = (ProductImageCell *)[tableView dequeueReusableCellWithIdentifier:ProductImageCellIdentifier];
-                if(cell == nil)
-                {
-                    cell = [[ProductImageCell alloc] init];
-                }
-                
-                //cell.imageNamesArray = @[[self.product objectForKey:@"image"]];
-                cell.imageNamesArray = @[[self.product objectForKey:@"image1"],
-                                         [self.product objectForKey:@"image2"],
-                                         [self.product objectForKey:@"image3"],
-                                         [self.product objectForKey:@"image4"]];
-                return cell;
-            }
-            case ProductPriceCellIndex:
-            {
-                PriceTableCell *cell = (PriceTableCell *)[tableView dequeueReusableCellWithIdentifier:ProductPriceCellIdentifier];
-                if(cell == nil)
-                {
-                    cell = [[PriceTableCell alloc] init];
-                }
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                return cell;
-            }
-            case ProductDescriptionCellIndex:
+            case 0: //ProductDescriptionCellIndex:
             {
                 DescriptionTableCell *cell = (DescriptionTableCell *)[tableView dequeueReusableCellWithIdentifier:ProductDescriptionIdentifier];
                 if(cell == nil)
@@ -350,9 +361,10 @@ static const NSInteger SeperatorCellIndex = 3;
                     cell = [[DescriptionTableCell alloc] init];
                 }
                 cell.descriptionString = [self.product objectForKey:@"description"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return cell;
             }
-            case SeperatorCellIndex:
+            case 1: //SeperatorCellIndex:
             {
                 SeperatorTableCell *cell = (SeperatorTableCell *)[tableView dequeueReusableCellWithIdentifier:SeperatorIdentifier];
                 if(cell == nil)
@@ -382,20 +394,21 @@ static const NSInteger SeperatorCellIndex = 3;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == SectionImageAndPriceInfo)
+    {
+        if(indexPath.row == 0) //ProductImageCellIndex
+            return 200.0f;
+        if(indexPath.row == 1) //ProductPriceCellIndex
+            return 28.0f;
+    }
     if(indexPath.section == SectionBasicInfo)
     {
         switch (indexPath.row)
         {
-            case ProductImageCellIndex:
-                return 200.0f;
+            case 0: //ProductDescriptionCellIndex:
+                return 256;
             
-            case ProductPriceCellIndex:
-                return 28.0f;
-            
-            case ProductDescriptionCellIndex:
-                return 300.0f;
-            
-            case SeperatorCellIndex:
+            case 1: //SeperatorCellIndex:
                 return 12.0f;
             
             default:
@@ -412,6 +425,25 @@ static const NSInteger SeperatorCellIndex = 3;
     }
 }
 
+- (void)categoryButtonClicked:(UIButton *)sender
+{
+    UIButton *button = sender;
+    NSInteger tag = button.tag - 150;
+    NSLog(@"categoryButton: %d clicked", tag);
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    DescriptionTableCell *cell = (DescriptionTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    NSArray *array = @[@"90分钟香艳秀场，近百名魔鬼身材的性感美女上演精彩的“上空秀”，火辣爆表，怎能错过！上空秀自1981年开演以来，口碑一直很好，票房也一支独秀，是这座罪恶之城历史最为悠久的表演秀，并被碧昂斯创意总监设计的新的舞蹈动作和故事情节刷新纪录。曼妙的身材、精致豪华的舞台设计，训练有素的舞台演出、热闹紧凑的内容……都是吸引观众的卖点！还可以重现泰坦尼克等举世有名的场面！",
+                       @"如果你正在考虑哈佛大学，或者你只是想看看这所常春藤联盟学校的学生生活是怎样的，那这一个小时的“Hahvahd”之旅绝对是为您设计的！可以听到哈佛在校大学生独家爆料大学生活，他将从内幕人员的视角，精彩绝伦的讲解哈佛学生生活的情景。还可以参观历史建筑，游览哈佛校园和哈佛广场，聆听学校历史掌故，了解学校知名人物。您可以选择参观哈佛自然史博物馆去体验哈佛之旅或先去参观哈佛自然史博物馆，然后到任吃到饱的冰火餐厅享用午餐，二选一。",
+                       @"这是华特迪士尼创建的第一座原创主题公园，是地球上最欢乐的地方。进入其中的每一个园区，熟悉的电影画面也就随之栩栩如生地展现您的面前，您会不断发掘这个神奇、幻想世界里的奥妙。加州冒险乐园以您从未想象过的方式，发掘您喜爱的迪士尼故事和卡通人物。和各个熟悉的卡通人物一起参加丰富多彩的冒险活动，开启新鲜有趣的体验活动。"];
+    if(tag > 0 && tag < 4)
+    {
+        cell.descriptionString = [array objectAtIndex:tag - 1];
+    } else {
+        cell.descriptionString = [self.product objectForKey:@"description"];
+    }
+    
+}
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -426,18 +458,50 @@ static const NSInteger SeperatorCellIndex = 3;
         label.text = @"评论";
         [headerBackgroundView addSubview:label];
         return headerBackgroundView;
-    } else
+    } if(section == SectionBasicInfo)
     {
-        return [[UIView alloc] initWithFrame:CGRectZero];
-    }
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44.0f)];
+        headerView.layer.borderWidth = 0.5f;
+        headerView.layer.borderColor = [UIColor whiteColor].CGColor;
+        NSArray *array = @[@"产品简介", @"详细信息", @"预定须知", @"点评咨询"];
+        for(int i = 0; i < 4; i++)
+        {
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((102 + 2) * i, 0, 102, 44)];
+            button.tag = 150 + i;
+            [button setBackgroundColor:[UIColor lightGrayColor]];
+            [button setTitle:[array objectAtIndex:i] forState:UIControlStateNormal];
+            [button setTitle:[array objectAtIndex:i] forState:UIControlStateSelected];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+            [button addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            /*
+            if(i < 3)
+            {
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(102 * (i+1), 4, 0.5, 36)];
+                line.backgroundColor = [UIColor lightGrayColor];
+                [headerView addSubview:line];
+            }
+             */
+            [headerView addSubview:button];
+        }
+        return headerView;
+    } else
+        return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section == SectionComments)
-        return 28.0f;
-    else
-        return 0.0f;
+    switch (section)
+    {
+        case SectionBasicInfo:
+            return 44.0f;
+        case SectionComments:
+            return 28.0f;
+            
+        default:
+            return 0;
+    }
 }
 
 @end
